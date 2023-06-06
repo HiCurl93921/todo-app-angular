@@ -1,0 +1,49 @@
+<div mat-dialog-title>
+    <h2>新規Todo</h2>
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="todoForm">
+        <dl>
+            <dt>
+              タイトル
+            </dt>
+            <dd>
+              <input formControlName="title" >
+              <div *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                <div class="invalid" *ngIf="title?.errors?.['required']">この項目は必須です。</div>
+                <div class="invalid" *ngIf="title?.errors?.['maxlength']">タイトルは64文字以下にしてください。</div>
+              </div>
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              カテゴリ
+            </dt>
+            <dd>
+              <select formControlName="categoryId">
+                <option *ngFor="let category of categories" [ngValue]="category.id">
+                  {{ category.name }}
+                </option>
+              </select>
+              <div *ngIf="categoryId?.invalid && (categoryId?.dirty || categoryId?.touched)">
+                <div class="invalid" *ngIf="categoryId?.errors?.['required']">この項目は必須です。</div>
+              </div>
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              内容
+            </dt>
+            <dd>
+              <textarea formControlName="body"></textarea>
+              <div *ngIf="body?.invalid && (body?.dirty || body?.touched)">
+                <div class="invalid" *ngIf="body?.errors?.['maxlength']">内容は256文字以下にしてください。</div>
+              </div>
+            </dd>
+          </dl>
+    </form>
+</div>
+<div>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button [disabled]="!todoForm.valid" (click)="onExecute()">OK</button>
+</div>

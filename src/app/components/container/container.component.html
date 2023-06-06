@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="sidebar">
+        <app-categories
+            [categories]="categories"
+            (selectedItemEvent)="onSelectCategories($event)"
+            />
+    </div>
+    <div class="main">
+        <app-todos
+            [categories]="selectedCategories"
+            [todos]="displayTodos"
+            (addEvent)="addTodo()"
+            (selectedTodoEvent)="onSelectTodo($event)"
+            (deleteEvent)="deleteTodo($event)"/>
+    </div>
+    <div class="detail" *ngIf="selectedTodo">
+        <app-todo-detail
+            [todo]="selectedTodo"
+            [categories]="categories"
+            (saveEvent)="updateTodo($event)"/>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+header {
+    width: 100vw;
+    top: 0;
+    background-color: #ddd;
+    padding: 0px 4% 10px;
+    /* position: fixed; */
+}
+
+footer {
+    height: 60px;
+    width: 100vw;
+    background-color: #ddd;
+    bottom: 0;
+    /* position: fixed; */
+}

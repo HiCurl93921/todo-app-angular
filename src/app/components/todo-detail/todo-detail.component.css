@@ -1,0 +1,43 @@
+.content {
+    height: 95%;
+    padding-left: 2rem;
+    border-left: solid gray 1px;
+    bottom: 0;
+}
+
+.content label {
+    color: #536950;
+    font-weight: bold;
+}
+
+.content input {
+    font-size: 1em;
+    padding: .5rem;
+}
+
+.content .invalid {
+    color: #f00;
+}
+
+.content textarea {
+    font-size: 1em;
+    padding: .5rem;
+}
+
+.content button {
+    margin-top: 20px;
+    background-color: #eee;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.content button:hover {
+    background-color: #cfd8bc;
+}
+
+.content button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+}

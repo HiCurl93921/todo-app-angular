@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let item of selectableItems">
+        <label>    
+            <input type="checkbox"
+            [(ngModel)]="item[1]"
+            (change)="onSelect(item)">{{item[0].name}}
+        </label>
+    </li>
+</ul>

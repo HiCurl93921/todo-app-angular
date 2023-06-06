@@ -1,0 +1,26 @@
+<div class="content">
+    <div class="main">
+        <h2>Todo 一覧</h2>
+        <button class="add" (click)="onAdd()">
+            <label>新規Todo</label>
+        </button>
+        <ul class="categories">
+            <li *ngFor="let category of categories">
+                <label>{{category.name}}</label>
+                <ul class="todos">
+                    <li *ngFor="let todo of filterdTodoByCategory(category)">
+                        <button class="todo" type="button" (click)="onSelect(todo)" [class.selected]="todo === selectedTodo">
+                            <span class="state" [style.background-color]="category.color">
+                            </span>
+                            <span>
+                                <div class="title">{{todo.title}} : {{todo.state.name}}</div>
+                                <div class="body">{{todo.body}}</div>
+                            </span>
+                        </button>
+                        <button class="delete" (click)="onDelete(todo)"><label>削除</label></button>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

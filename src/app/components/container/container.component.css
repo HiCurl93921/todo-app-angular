@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 20vw;
+    background-color: #eee;
+}
+
+.main {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.detail {
+    width: 30%;
+}

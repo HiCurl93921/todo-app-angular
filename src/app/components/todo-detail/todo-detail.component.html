@@ -1,0 +1,56 @@
+<div class="content" *ngIf="todo">
+    <h2>{{todo.title}}</h2>
+    <div>
+      <form [formGroup]="todoForm" (ngSubmit)="onSaveButtonClick()">
+          <dl>
+              <dt>
+                タイトル
+              </dt>
+              <dd>
+                <input formControlName="title" >
+                <div *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                  <div class="invalid" *ngIf="title?.errors?.['required']">この項目は必須です。</div>
+                  <div class="invalid" *ngIf="title?.errors?.['maxlength']">タイトルは64文字以下にしてください。</div>
+                </div>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                カテゴリ
+              </dt>
+              <dd>
+                <select formControlName="categoryId">
+                  <option *ngFor="let category of categories" [ngValue]="category.id">
+                    {{ category.name }}
+                  </option>
+                </select>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                内容
+              </dt>
+              <dd>
+                <textarea formControlName="body"></textarea>
+                <div *ngIf="body?.invalid && (body?.dirty || body?.touched)">
+                  <div class="invalid" *ngIf="body?.errors?.['maxlength']">内容は256文字以下にしてください。</div>
+                </div>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                状態
+              </dt>
+              <dd>
+                <select formControlName="state">
+                  <option *ngFor="let state of states" [ngValue]="state.code">
+                    {{ state.name }}
+                  </option>
+                </select>
+              </dd>
+            </dl>
+
+      <button type="submit" [disabled]="!todoForm.valid">保存</button>
+      </form>
+  </div>
+</div>
